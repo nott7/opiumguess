@@ -19,7 +19,7 @@ export default function Home() {
   const getRandomSong = () => {
     const randomSong = songs[Math.floor(Math.random() * songs.length)];
     console.log(songIdsAlreadyPlayed);
-    console.log(randomSong.id);
+    console.log(randomSong.artist);
     if (songIdsAlreadyPlayed.includes(randomSong.id)) {
       return getRandomSong();
     }
@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (songIdsAlreadyPlayed.length !== 20) {
+    if (songIdsAlreadyPlayed.length !== songs.length) {
       setCurrentSong(getRandomSong());
     } else {
       setTimeout(() => setYouGuessedAll(true), 0);
