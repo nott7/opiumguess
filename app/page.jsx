@@ -27,7 +27,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (songIdsAlreadyPlayed.length !== songs.length) {
+    if (songIdsAlreadyPlayed.length !== 2) {
       setCurrentSong(getRandomSong());
     } else {
       setTimeout(() => setYouGuessedAll(true), 0);
@@ -77,7 +77,7 @@ export default function Home() {
             onClick={() => {
               setScore(0);
               setLives(3);
-              setYouLost(false);
+              setYouGuessedAll(false);
               setSongIdsAlreadyPlayed([]);
               // setCurrentSong(getRandomSong());
             }}
