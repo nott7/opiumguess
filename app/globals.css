@@ -2,32 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+.text-component-container {
+  position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.score-container {
+  position: absolute !important;
+}
+
+.text-component-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Nero con opacità al 50% */
+  border-radius: inherit; /* Mantiene il bordo arrotondato del div */
+  z-index: 0;
+}
+
+.text-component-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.lost-component-container {
+    position: relative;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  
+  .lost-component-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8); /* Nero con opacità al 50% */
+    border-radius: inherit; /* Mantiene il bordo arrotondato del div */
+    z-index: 0;
   }
-}
+  
+  .lost-component-container > * {
+    position: relative;
+    z-index: 1;
+  }
+  
