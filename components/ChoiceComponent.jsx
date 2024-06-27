@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 const ChoiceComponent = ({
   correctMember,
@@ -12,9 +13,12 @@ const ChoiceComponent = ({
   setYouLost,
   setYouGuessedAll,
 }) => {
-
-  const correctSound = new Audio("/success.m4a");
-  const wrongSound = new Audio("/error.m4a");
+  const [correctSound] = useState(
+    typeof Audio !== "undefined" && new Audio("/success.m4a")
+  );
+  const [wrongSound] = useState(
+    typeof Audio !== "undefined" && new Audio("/error.m4a")
+  );
 
   const opiumMembers = [
     {
